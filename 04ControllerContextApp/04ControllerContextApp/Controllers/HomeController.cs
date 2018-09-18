@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using _04ControllerContextApp.Models;
 
@@ -10,9 +11,15 @@ namespace _04ControllerContextApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public void Index()
         {
-            return View();
+            string table = "";
+            foreach (var header in Request.Headers)
+            {
+                table += $"<tr><td>{header.Key}</td><td>{header.Value}</dt></tr>";
+            }
+
+            Response.WriteAsync(String.Format("<table>{0}</table>", table));
         }
 
         public IActionResult About()
