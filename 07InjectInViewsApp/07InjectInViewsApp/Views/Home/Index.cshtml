@@ -1,0 +1,6 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@inject _07InjectInViewsApp.Services.IMessageSender MessageSender
+@MessageSender.SendMessage()
