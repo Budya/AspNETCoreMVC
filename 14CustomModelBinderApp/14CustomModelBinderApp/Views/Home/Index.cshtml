@@ -1,0 +1,12 @@
+﻿@using _14CustomModelBinderApp.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Event>
+
+<table class="table">
+    @foreach (Event ev in Model)
+    {
+        <tr><td>@ev.Id</td><td>@ev.Name</td><td>@ev.EventDate</td></tr>
+    }
+</table>
