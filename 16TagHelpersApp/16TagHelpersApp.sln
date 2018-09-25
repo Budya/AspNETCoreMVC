@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16TagHelpersApp", "16TagHelpersApp\16TagHelpersApp.csproj", "{15EEE3B6-EF28-492A-B59F-4890F9978A6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTagHelperApp", "CustomTagHelperApp\CustomTagHelperApp.csproj", "{BFBB5481-73CF-4174-99F9-D7916D08C004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15EEE3B6-EF28-492A-B59F-4890F9978A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15EEE3B6-EF28-492A-B59F-4890F9978A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15EEE3B6-EF28-492A-B59F-4890F9978A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15EEE3B6-EF28-492A-B59F-4890F9978A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBB5481-73CF-4174-99F9-D7916D08C004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBB5481-73CF-4174-99F9-D7916D08C004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBB5481-73CF-4174-99F9-D7916D08C004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBB5481-73CF-4174-99F9-D7916D08C004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {575953C4-DA95-40D6-A7F2-A6A54FF4A613}
+	EndGlobalSection
+EndGlobal
