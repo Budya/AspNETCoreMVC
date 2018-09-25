@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <p>
+        <label>Модель</label><br />
+        @Html.TextBox("Name")
+    </p>
+    <p>
+        <label>Цена</label><br />
+        @Html.TextBox("Price", "", new { type = "number" })
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+}

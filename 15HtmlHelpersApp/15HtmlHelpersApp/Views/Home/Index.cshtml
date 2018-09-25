@@ -1,4 +1,5 @@
 ﻿@using _15HtmlHelpersApp.App_Code
+@model _15HtmlHelpersApp.Models.Phone
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -17,3 +18,30 @@
 <h3>Страны</h3>
 <!-- или можно вызвать так -->
 @ListHelper.CreateList(Html, countries)
+
+@Html.DropDownList("phones", ViewBag.Phones as SelectList) <br />
+
+@Html.ListBox("phones", ViewBag.Phones as MultiSelectList) <br />
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.DropDownList("daytime", Html.GetEnumSelectList(typeof(TimeOfDay)))
+    <br />
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+}
+<br /><br />
+
+<p>
+    <b>Id:</b><br />
+    @Html.Display("Id")
+</p>
+<p>
+    <b>Модель:</b><br />
+    @Html.Display("Name")
+</p>
+<p>
+    <b>Цена:</b><br />
+    @Html.Display("Price")
+</p>
