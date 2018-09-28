@@ -21,34 +21,35 @@ namespace _19SortApp.Controllers
 
         public async Task<IActionResult> Index(SortState sortOrder = SortState.NameAsc)
         {
-            ViewData["NameSort"] = sortOrder==SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
-            ViewData["AgeSort"] = sortOrder == SortState.AgeAsc ? SortState.AgeDesc : SortState.AgeAsc;
-            ViewData["CompSort"] = sortOrder == SortState.CompanyAsc ? SortState.CompanyDesc : SortState.CompanyAsc;
-
-            IOrderedQueryable<User> users;
+            IQueryable<User> users = db.Users.Include(x => x.Company);
             
             switch (sortOrder)
             {
                 case SortState.NameDesc:
-                    users =  db.Users.OrderByDescending(s => s.Name);
+                    users =  users.OrderByDescending(s => s.Name);
                     break;
                 case SortState.AgeAsc:
-                    users = db.Users.OrderBy(s => s.Age);
+                    users = users.OrderBy(s => s.Age);
                     break;
                 case SortState.AgeDesc:
-                    users = db.Users.OrderByDescending(s => s.Age);
+                    users = users.OrderByDescending(s => s.Age);
                     break;
                 case SortState.CompanyAsc:
-                    users = db.Users.OrderBy(s => s.Company.Name);
+                    users = users.OrderBy(s => s.Company.Name);
                     break;
                 case SortState.CompanyDesc:
-                    users = db.Users.OrderByDescending(s => s.Company.Name);
+                    users = users.OrderByDescending(s => s.Company.Name);
                     break;
                 default:
-                    users = db.Users.OrderBy(s => s.Name);
+                    users = users.OrderBy(s => s.Name);
                     break;
             }
-            return View(await users.AsNoTracking().ToListAsync());
+            IndexViewModel viewModel = new IndexViewModel
+            {
+                Users = await users.AsNoTracking().ToListAsync(),
+                SortViewModel = new SortViewModel(sortOrder)
+            };
+            return View(viewModel);
         }
         
 

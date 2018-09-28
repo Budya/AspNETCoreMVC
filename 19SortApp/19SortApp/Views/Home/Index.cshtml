@@ -1,28 +1,35 @@
 ﻿@using _19SortApp.Models
+ 
+@model IndexViewModel
+<!--импортируем tag-хелперы проекта-->
+@addTagHelper *, _19SortApp
+ 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Список пользователей";
 }
-@model IEnumerable<User>
 <h1>Список пользователей</h1>
 <table class="table">
     <tr>
         <th>
-            <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">
+            <sort-header action="Index"  up="@Model.SortViewModel.Up"
+                         current="@Model.SortViewModel.Current" property="@Model.SortViewModel.NameSort">
                 Имя
-            </a>
+            </sort-header>
         </th>
         <th>
-            <a asp-action="Index" asp-route-sortOrder="@ViewBag.AgeSort">
+            <sort-header action="Index" up="@Model.SortViewModel.Up"
+                         current="@Model.SortViewModel.Current" property="@Model.SortViewModel.AgeSort">
                 Возраст
-            </a>
+            </sort-header>
         </th>
         <th>
-            <a asp-action="Index" asp-route-sortOrder="@ViewBag.CompSort">
+            <sort-header action="Index" up="@Model.SortViewModel.Up"
+                         current="@Model.SortViewModel.Current" property="@Model.SortViewModel.CompanySort">
                 Компания
-            </a>
+            </sort-header>
         </th>
     </tr>
-    @foreach (User u in Model)
+    @foreach (User u in Model.Users)
     {
         <tr><td>@u.Name</td><td>@u.Age</td><td>@u.Company.Name</td></tr>
     }
