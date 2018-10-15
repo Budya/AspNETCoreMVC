@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using _01HelloWebApi.Models;
 
 namespace _01HelloWebApi
 {
@@ -23,6 +25,8 @@ namespace _01HelloWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string con = "Server=(localdb)\\mssqllocaldb;Database=usersWebApidbstore;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddDbContext<UsersContext>(options => options.UseSqlServer(con));
             services.AddMvc();
         }
 
