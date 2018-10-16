@@ -50,8 +50,19 @@ namespace _01HelloWebApi.Controllers
         {
             if (user == null)
             {
+                ModelState.AddModelError("", "Не указаны данные для пользователя");
                 return BadRequest();
             }
+            if (user.Age==99)
+                ModelState.AddModelError("Age", "Возраст не должен быть равен 99");
+ 
+            if (user.Name == "admin")
+            {
+                ModelState.AddModelError("Name", "Недопустимое имя пользователя - admin");
+            }
+            
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             db.Users.Add(user);
             db.SaveChanges();
