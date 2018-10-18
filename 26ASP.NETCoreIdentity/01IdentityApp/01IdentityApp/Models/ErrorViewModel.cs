@@ -1,6 +1,6 @@
 using System;
 
-namespace _05TokenApp.Models
+namespace _01IdentityApp.Models
 {
     public class ErrorViewModel
     {

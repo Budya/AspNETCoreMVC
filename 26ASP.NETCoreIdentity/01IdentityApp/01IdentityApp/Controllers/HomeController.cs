@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using _05TokenApp.Models;
+using _01IdentityApp.Models;
 
-namespace _05TokenApp.Controllers
+namespace _01IdentityApp.Controllers
 {
     public class HomeController : Controller
     {
