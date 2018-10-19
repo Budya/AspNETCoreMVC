@@ -97,7 +97,8 @@ namespace _02CustomIdentityApp.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
-            // other method https://metanit.com/sharp/aspnet5/16.8.php
+		// other method https://metanit.com/sharp/aspnet5/16.8.php
+
 
             if (ModelState.IsValid)
             {
